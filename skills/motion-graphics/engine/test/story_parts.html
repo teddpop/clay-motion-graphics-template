@@ -1,0 +1,9 @@
+<!doctype html><html><head><link rel="stylesheet" href="../base.css">
+<script type="importmap">{"imports":{"three":"../vendor/three/three.module.js","three/addons/":"../vendor/three/addons/"}}</script>
+<style>body{background:#F8F4F1}</style></head><body><div class="stage" id="s"></div><script>window.__ready=false</script><script src="../runtime.js"></script>
+<script type="module">import '../food3d.js';MG.setup({duration:2});const st=MG.stage3d('#s');
+const fr=MG.food.fridge();st.add(fr,(o,t)=>{MG.place(o,t,st,{at:[500,560],size:420,spin:0,bob:0,tilt:[0,18,0]});o.userData.door.rotation.y=-1.9;});
+st.add(MG.food.cabbage(),(o,t)=>MG.place(o,t,st,{at:[1050,400],size:220,spin:0,bob:0}));
+st.add(MG.food.riceTub(),(o,t)=>MG.place(o,t,st,{at:[1450,400],size:260,spin:0,bob:0,tilt:[20,-15,0]}));
+st.add(MG.food.eggWhole(),(o,t)=>MG.place(o,t,st,{at:[1100,780],size:150,spin:0,bob:0}));
+window.__ready=true;</script></body></html>

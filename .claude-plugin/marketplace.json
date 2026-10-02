@@ -1,0 +1,15 @@
+{
+  "name": "teddpop-plugins",
+  "description": "teddpop's Claude Code plugins.",
+  "owner": {
+    "name": "teddpop",
+    "url": "https://github.com/teddpop"
+  },
+  "plugins": [
+    {
+      "name": "clay-motion-graphics-template",
+      "source": "./",
+      "description": "Clay Story motion-graphics videos for any product, rendered locally to MP4."
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "clay-motion-graphics-template",
+  "displayName": "Motion Graphics (Clay Story)",
+  "version": "1.0.0",
+  "description": "Direct and render product videos as MP4 with only Claude-written HTML/SVG/Three.js, headless Chrome and ffmpeg: 3D clay mascot and props, a story invented per product from its value, composed from a scene library. Free, local toolchain (Kokoro TTS, whisper.cpp, FluidSynth).",
+  "author": {
+    "name": "teddpop",
+    "url": "https://github.com/teddpop"
+  },
+  "keywords": [
+    "video",
+    "motion-graphics",
+    "explainer",
+    "promo",
+    "three.js",
+    "animation"
+  ],
+  "homepage": "https://github.com/teddpop/clay-motion-graphics-template",
+  "repository": "https://github.com/teddpop/clay-motion-graphics-template",
+  "license": "MIT"
+}

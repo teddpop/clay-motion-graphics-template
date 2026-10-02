@@ -1,0 +1,15 @@
+<!doctype html><html><head><link rel="stylesheet" href="../base.css">
+<script type="importmap">{"imports":{"three":"../vendor/three/three.module.js","three/addons/":"../vendor/three/addons/"}}</script>
+<style>body{background:#F8F4F1}.l{position:absolute;font:600 18px 'JetBrains Mono';width:260px;text-align:center}</style></head>
+<body><div class="stage" id="s"></div><script>window.__ready=false</script><script src="../runtime.js"></script>
+<script type="module">
+import '../food3d.js';
+MG.setup({duration:2});
+const st = MG.stage3d('#s');
+const names=['tomato','egg','eggWhole','avocado','carrot','broccoli','lemon','chili','mushroom','riceBowl','pan','plate','milk','herb','garlic','cheese','pepper','steam'];
+names.forEach((n,i)=>{const x=150+(i%6)*325,y=170+Math.floor(i/6)*340;
+ const tilt = ['egg','lemon','avocado'].includes(n)?[0,0,0]:(['riceBowl','pan','plate'].includes(n)?[25,0,0]:[10,0,0]);
+ st.add(MG.food[n](),(o,t)=>MG.place(o,t,st,{at:[x,y],size:n==='pan'?150:170,spin:['egg','lemon','avocado'].includes(n)?0:0.3,tilt,seed:i,bob:0}));
+ const l=document.createElement('div');l.className='l';l.style.left=(x-130)+'px';l.style.top=(y+110)+'px';l.textContent=n;s.appendChild(l);});
+window.__ready=true;
+</script></body></html>

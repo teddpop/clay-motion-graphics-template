@@ -1,0 +1,14 @@
+<!doctype html><html><head><link rel="stylesheet" href="../base.css">
+<script type="importmap">{"imports":{"three":"../vendor/three/three.module.js","three/addons/":"../vendor/three/addons/"}}</script>
+<style>body{background:#FE8505}.c{position:absolute;top:20px;width:640px;height:1040px}.l{position:absolute;font:600 18px 'JetBrains Mono';color:#191715}</style></head><body><div class="stage" id="s"></div>
+<script>window.__ready=false</script><script src="../runtime.js"></script>
+<script type="module">import '../host3d.js';MG.setup({duration:2});
+const P={skin:'#EDC3A0',hair:'#8A4B2A',shirt:'#4E6E7A',shirtDark:'#3C5864'};
+const A=(out,fwd,bend,eout,twist,hand)=>({out,fwd,bend,eout,twist,hand});
+const base=MG.POSES3D.hold;
+const V={hold:[8,28,140,8,90],k2:[8,24,135,10,90],k3:[8,32,145,6,90]};
+Object.entries(V).forEach(([k,v],i)=>{if(k!=='hold')MG.POSES3D[k]={...base,R:A(...v,'grip')};
+const c=document.createElement('div');c.className='c';c.style.left=(i%3)*640+'px';c.style.top=(-280+Math.floor(i/3)*560)+'px';s.appendChild(c);
+MG.host3d(c,{pose:k,hair:'curly',palette:P,seed:3,talk:false}).prop('phone',0,9);
+const l=document.createElement('div');l.className='l';l.style.left=((i%3)*640+10)+'px';l.style.top=(10+Math.floor(i/3)*540)+'px';l.textContent=k+' '+v.join(',');s.appendChild(l);});
+window.__ready=true;</script></body></html>

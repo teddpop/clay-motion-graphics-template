@@ -1,0 +1,25 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../base.css">
+<script type="importmap">{"imports":{"three":"../vendor/three/three.module.js","three/addons/":"../vendor/three/addons/"}}</script>
+<style>body{background:#F8F4F1}.b{position:absolute;top:30px;width:250px;height:250px;border-radius:50%;overflow:hidden;border:4px solid #1C1A17;background:#E1D3CA}.f{position:absolute;top:300px;width:270px;height:640px}.l{position:absolute;top:960px;width:270px;text-align:center;font:600 19px 'JetBrains Mono'}</style>
+</head><body><div class="stage" id="s"></div><script>window.__ready=false</script><script src="../runtime.js"></script>
+<script type="module">
+// Mascot look sheet: every hair style × a few skin tones, bust + full body.
+//   node render.mjs test/looks.html --stills 0.5 --outdir test/looks
+// Single look: test/looks.html?hair=bun&glasses=1&lashes=1&skin=%238D5A3B&hairc=%231F1715&shirt=%232F7F6F   (--query …)
+import '../host3d.js';
+MG.setup({ duration: 1 });
+const q = new URLSearchParams(location.search);
+const looks = q.get('hair') ? Array.from({ length: 7 }, (_, i) => ({ hair: q.get('hair'), glasses: q.get('glasses') === '1' ? (q.get('frame') || true) : false, lashes: q.get('lashes') === '1',
+  palette: { skin: q.get('skin') || '#EDC3A0', hair: q.get('hairc') || '#3B2A24', shirt: q.get('shirt') || '#4E6E7A', shirtDark: q.get('shirtDark') || q.get('shirt') || '#3C5864' }, pose: ['idle', 'talk', 'present', 'wave', 'point', 'hold', 'thumbs'][i] }))
+: [['quiff', '#EDC3A0', '#3B2A24', '#4E6E7A'], ['curly', '#EDC3A0', '#8A4B2A', '#4E6E7A'], ['bun', '#8D5A3B', '#1F1715', '#2F7F6F', 1, 1], ['bob', '#F1CDB0', '#C98A3E', '#C2504A', 0, 1], ['long', '#C68B62', '#2B1B14', '#5B5FB0', 0, 1], ['ponytail', '#E8B48F', '#5A3420', '#E0A43A', 1, 1], ['buzz', '#6E4430', '#191412', '#3E4A5C', 0, 0]]
+  .map(([hair, skin, hc, shirt, glasses, lashes]) => ({ hair, glasses: !!glasses, lashes: !!lashes, palette: { skin, hair: hc, shirt, shirtDark: shirt }, pose: 'idle' }));
+looks.forEach((L, i) => {
+  const x = 10 + i * 272;
+  const b = document.createElement('div'); b.className = 'b'; b.style.left = (x + 10) + 'px'; s.appendChild(b);
+  MG.host3d(b, { variant: 'bust', pose: 'talk', ...L });
+  const f = document.createElement('div'); f.className = 'f'; f.style.left = x + 'px'; s.appendChild(f);
+  const h = MG.host3d(f, { variant: 'full', ...L }); if (L.pose === 'hold') h.prop('phone', 0, 9);
+  const l = document.createElement('div'); l.className = 'l'; l.style.left = x + 'px'; l.textContent = L.hair + (L.glasses ? '+glasses' : '') + (q.get('hair') ? ' ' + L.pose : ''); s.appendChild(l);
+});
+window.__ready = true;
+</script></body></html>

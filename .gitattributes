@@ -1,0 +1,18 @@
+# Keep everything LF in the repository. setup.sh and the .mjs/.py tooling run on
+# macOS and Linux, where CRLF line endings break the shebang and heredocs.
+* text=auto eol=lf
+
+*.sh   text eol=lf
+*.mjs  text eol=lf
+*.js   text eol=lf
+*.py   text eol=lf
+*.css  text eol=lf
+*.html text eol=lf
+*.json text eol=lf
+*.md   text eol=lf
+
+*.wav binary
+*.png binary
+*.ttf binary
+*.mid binary
+*.mp4 binary

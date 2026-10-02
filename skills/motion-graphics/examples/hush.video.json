@@ -1,0 +1,344 @@
+{
+ "style": "clay-story",
+ "product": {
+  "name": "Hush",
+  "category": "smart leak sensor",
+  "kind": "hardware",
+  "cta": "Pre-order",
+  "url": "hush.home",
+  "object": {
+   "prop": "sensorPuck",
+   "opts": {
+    "glow": "#12C3FF"
+   }
+  },
+  "objectTilt": [
+   38,
+   0,
+   0
+  ]
+ },
+ "story": {
+  "value": "Peace of mind: a leak gets caught and stopped while you're away, so nothing bad ever happens.",
+  "audience": "homeowners and renters who travel",
+  "feeling": "relief / calm",
+  "framework": "absence: the disaster that never happens — life moment → meanwhile, the threat → product → protection → life goes on",
+  "why": "The value is invisible (nothing happens), so the film contrasts the viewer's life with the threat and shows the protection, not an app workflow."
+ },
+ "brand": {
+  "hue": 230,
+  "accent": "#FFC83D",
+  "mark": "<circle cx=\"24\" cy=\"24\" r=\"19\" fill=\"#FFFFFF\" stroke=\"#151819\" stroke-width=\"3.2\"/><circle cx=\"24\" cy=\"24\" r=\"11\" fill=\"none\" stroke=\"#12C3FF\" stroke-width=\"4\"/><path d=\"M24 17 Q19 24 24 29 Q29 24 24 17Z\" fill=\"#12C3FF\"/>"
+ },
+ "cast": [
+  {
+   "id": "gus",
+   "name": "Gus",
+   "gender": "male",
+   "hair": "buzz",
+   "glasses": true,
+   "voice": "bm_lewis",
+   "palette": {
+    "skin": "#C68B62",
+    "hair": "#B9B4AD",
+    "shirt": "#2F3E66",
+    "shirtDark": "#253256",
+    "pants": "#3A3836"
+   }
+  }
+ ],
+ "voice": {
+  "speed": 1.0,
+  "lead": 0.6,
+  "gap": 0.3,
+  "tail": 4.2
+ },
+ "device": {
+  "type": "none"
+ },
+ "screens": {},
+ "script": [
+  {
+   "id": "hook",
+   "say": "Most water damage starts with one tiny drip.",
+   "pauseAfter": 0.35
+  },
+  {
+   "id": "away",
+   "say": "Like the pipe under your sink, dripping away while you're at the beach.",
+   "pauseAfter": 0.4
+  },
+  {
+   "id": "idea",
+   "say": "Hush is a little sensor that hears a leak the moment it starts.",
+   "pauseAfter": 0.35
+  },
+  {
+   "id": "stop",
+   "say": "It shuts off your water in seconds, so one drip never becomes a flood.",
+   "pauseAfter": 0.35
+  },
+  {
+   "id": "text",
+   "say": "Then it texts you that it's handled, and you get back to your weekend.",
+   "pauseAfter": 0.5
+  },
+  {
+   "id": "brand",
+   "say": "Hush.",
+   "pauseAfter": 0.55
+  },
+  {
+   "id": "tag",
+   "say": "Tiny sensor. Big relief.",
+   "pauseAfter": 0.55
+  },
+  {
+   "id": "cta",
+   "say": "Pre-order yours today.",
+   "pauseAfter": 0.2
+  }
+ ],
+ "scenes": [
+  {
+   "scene": "statement",
+   "lines": [
+    "hook"
+   ],
+   "caption": "It starts with\none tiny drip.",
+   "hi": "drip.",
+   "prop": {
+    "prop": "waterDrop",
+    "at": [
+     1440,
+     620
+    ],
+    "size": 200,
+    "motion": "drop",
+    "every": 0.9
+   },
+   "pose": "point"
+  },
+  {
+   "scene": "vignette",
+   "lines": [
+    "away"
+   ],
+   "bg": "tint",
+   "at": {
+    "left": 760,
+    "top": 90,
+    "w": 600,
+    "h": 980
+   },
+   "pose": "idle",
+   "poses": [
+    [
+     "away",
+     "beach.",
+     "open"
+    ]
+   ],
+   "caption": "Meanwhile,\nyou're at the beach.",
+   "hi": "beach.",
+   "set": [
+    {
+     "prop": "umbrella",
+     "at": [
+      560,
+      760
+     ],
+     "size": 420,
+     "motion": "sway"
+    },
+    {
+     "prop": "palm",
+     "at": [
+      1440,
+      740
+     ],
+     "size": 380,
+     "motion": "sway"
+    },
+    {
+     "prop": "sun",
+     "at": [
+      1180,
+      190
+     ],
+     "size": 150,
+     "motion": "turn"
+    }
+   ],
+   "inset": {
+    "prop": "pipe",
+    "at": [
+     1660,
+     320
+    ],
+    "r": 190,
+    "size": 230,
+    "label": "Under your sink",
+    "inAt": "pipe",
+    "dreadAt": "dripping",
+    "qAt": "beach.",
+    "drip": {
+     "prop": "waterDrop",
+     "from": [
+      40,
+      60
+     ],
+     "every": 0.5,
+     "size": 40
+    },
+    "bg": "#E3D7CC"
+   }
+  },
+  {
+   "scene": "product-hero",
+   "lines": [
+    "idea"
+   ],
+   "bg": "hi",
+   "at": [
+    1250,
+    600
+   ],
+   "size": 340,
+   "kicker": "Meet Hush",
+   "caption": "Hears a leak\nthe moment it starts.",
+   "hi": "moment",
+   "callouts": [
+    {
+     "text": "Hears the first drip",
+     "at": "hears",
+     "anchor": [
+      140,
+      -40
+     ],
+     "side": "right",
+     "dist": 170
+    },
+    {
+     "text": "10-year battery",
+     "at": "moment",
+     "anchor": [
+      150,
+      50
+     ],
+     "side": "right",
+     "dist": 170,
+     "dy": 40
+    }
+   ]
+  },
+  {
+   "scene": "shield",
+   "lines": [
+    "stop"
+   ],
+   "bg": "paper",
+   "at": [
+    1400,
+    580
+   ],
+   "size": 280,
+   "radius": 290,
+   "domeAt": "shuts",
+   "caption": "Water off\nin seconds.",
+   "hi": "seconds.",
+   "threats": {
+    "prop": "waterDrop",
+    "count": 9,
+    "size": 60
+   }
+  },
+  {
+   "scene": "vignette",
+   "lines": [
+    "text"
+   ],
+   "bg": "tint",
+   "at": {
+    "left": 760,
+    "top": 90,
+    "w": 600,
+    "h": 980
+   },
+   "hold": "phone",
+   "poses": [
+    [
+     "text",
+     "weekend.",
+     "thumbs"
+    ]
+   ],
+   "caption": "Handled.\nBack to your weekend.",
+   "hi": "Handled.",
+   "set": [
+    {
+     "prop": "umbrella",
+     "at": [
+      560,
+      760
+     ],
+     "size": 420,
+     "motion": "sway"
+    },
+    {
+     "prop": "palm",
+     "at": [
+      1440,
+      740
+     ],
+     "size": 380,
+     "motion": "sway"
+    },
+    {
+     "prop": "sun",
+     "at": [
+      1180,
+      190
+     ],
+     "size": 150,
+     "motion": "turn"
+    }
+   ],
+   "notify": {
+    "title": "Hush · Kitchen",
+    "text": "Leak stopped under the sink. Water's off.",
+    "at": "texts",
+    "pos": [
+     1290,
+     140
+    ]
+   }
+  },
+  {
+   "scene": "end",
+   "lines": [
+    "brand",
+    "tag",
+    "cta"
+   ],
+   "taglineText": "Tiny sensor.\nBig relief.",
+   "hi": "relief.",
+   "orbit": [
+    "waterDrop",
+    "valve",
+    "key",
+    "house",
+    "check",
+    "sun"
+   ]
+  }
+ ],
+ "music": {
+  "key": "C",
+  "bpmNear": 92,
+  "drop": [
+   "idea",
+   "Hush"
+  ]
+ }
+}

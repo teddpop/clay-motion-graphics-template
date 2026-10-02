@@ -1,0 +1,16 @@
+# Large / machine-specific files fetched or built by skills/motion-graphics/engine/setup.sh — never commit
+skills/motion-graphics/engine/models/
+skills/motion-graphics/engine/.venv/
+skills/motion-graphics/engine/.bootstrap/
+skills/motion-graphics/engine/node_modules/
+skills/motion-graphics/engine/package-lock.json
+# preview renders
+skills/motion-graphics/engine/test/*.png
+skills/motion-graphics/engine/test/*/
+!skills/motion-graphics/engine/test/voices/
+# user projects and renders
+projects/
+*.mp4
+# ...except the example films shipped in the README
+!media/*.mp4
+.DS_Store

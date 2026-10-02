@@ -1,0 +1,16 @@
+<!doctype html><html><head><link rel="stylesheet" href="../base.css">
+<script type="importmap">{"imports":{"three":"../vendor/three/three.module.js","three/addons/":"../vendor/three/addons/"}}</script>
+<style>.cell{position:absolute;top:10px;width:300px;height:560px}.lbl{position:absolute;top:570px;width:300px;text-align:center;font:600 22px Inter}.b{position:absolute;top:640px;width:400px;height:400px;border-radius:50%;overflow:hidden;border:4px solid #161917;background:#EFEDE7}</style>
+</head><body><div class="stage" id="s"></div>
+<script>window.__ready=false</script>
+<script src="../runtime.js"></script>
+<script type="module">
+import '../host3d.js';
+MG.setup({duration:1});
+const names=Object.keys(MG.POSES3D).filter(n=>n!=='idle'||true);
+const pick=(new URLSearchParams(location.search).get('p')||names.join(',')).split(',');
+pick.slice(0,6).forEach((n,i)=>{const c=document.createElement('div');c.className='cell';c.style.left=(10+i*315)+'px';s.appendChild(c);
+MG.host3d(c,{pose:n,seed:i+3,palette:{shirt:'#4E6E7A',shirtDark:'#3C5864'}});const l=document.createElement('div');l.className='lbl';l.style.left=(10+i*315)+'px';l.textContent=n;s.appendChild(l);});
+['talk','point','think','thumbs'].forEach((n,i)=>{const b=document.createElement('div');b.className='b';b.style.left=(40+i*460)+'px';s.appendChild(b);MG.host3d(b,{variant:'bust',pose:n,palette:{shirt:'#4E6E7A',shirtDark:'#3C5864'}});});
+window.__ready=true;
+</script></body></html>

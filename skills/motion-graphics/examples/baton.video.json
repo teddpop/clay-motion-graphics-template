@@ -1,0 +1,70 @@
+{
+ "style": "clay-story",
+ "product": { "name": "Baton", "category": "project board for remote teams", "kind": "web app", "cta": "Try it with your team", "url": "baton.work" },
+ "story": {
+  "value": "A team split across time zones keeps moving without status meetings: the board writes the handoff, the next person starts their day already caught up.",
+  "audience": "remote product teams, team leads",
+  "feeling": "relief + connection",
+  "framework": "connection: two people out of sync → the product bridges them → proof in time saved",
+  "why": "The pain is between people, not inside a container; a duo scene shows it honestly. The proof is a number (meetings dropped)."
+ },
+ "brand": {
+  "hue": 285, "accent": "#F2B935",
+  "mark": "<rect x=\"5\" y=\"5\" width=\"38\" height=\"38\" rx=\"12\" fill=\"#9D96FF\" stroke=\"#171719\" stroke-width=\"3.2\"/><path d=\"M14 31 L31 14\" stroke=\"#171719\" stroke-width=\"6\" stroke-linecap=\"round\"/><circle cx=\"33\" cy=\"12\" r=\"4\" fill=\"#F2B935\" stroke=\"#171719\" stroke-width=\"2.4\"/>"
+ },
+ "cast": [
+  { "id": "maya", "name": "Maya", "gender": "female", "hair": "long", "lashes": true, "voice": "af_bella",
+    "palette": { "skin": "#E8B48F", "hair": "#3B2A24", "shirt": "#5B5FB0", "shirtDark": "#4A4E99", "pants": "#2B2F3A" } },
+  { "id": "sam", "name": "Sam", "gender": "male", "hair": "buzz", "glasses": true, "voice": "am_michael",
+    "palette": { "skin": "#6E4430", "hair": "#191412", "shirt": "#3E9B5F", "shirtDark": "#2F7F4B", "pants": "#2C2A29" } }
+ ],
+ "voice": { "speed": 1.05, "lead": 0.6, "gap": 0.3, "tail": 4.0 },
+ "device": { "type": "laptop", "first": "board" },
+ "screens": {
+  "board": { "type": "board", "title": "Checkout redesign", "people": [{ "i": "M", "c": "#5B5FB0" }, { "i": "S", "c": "#3E9B5F" }, { "i": "A", "c": "#E9724C" }],
+    "cols": [
+     { "t": "To do", "cards": [{ "t": "Apple Pay button", "tag": "Design", "c": "#D8D6FF" }, { "t": "Error states", "tag": "Design", "c": "#D8D6FF", "who": { "i": "A", "c": "#E9724C" } }] },
+     { "t": "In progress", "cards": [{ "t": "Address autocomplete", "tag": "Build", "c": "#FFE6A6", "who": { "i": "M", "c": "#5B5FB0" } }, { "t": "Promo code field", "tag": "Build", "c": "#FFE6A6", "who": { "i": "M", "c": "#5B5FB0" } }] },
+     { "t": "Done", "cards": [{ "t": "Cart summary", "tag": "Build", "c": "#C9F0D6" }] } ],
+    "move": { "from": [1, 0], "to": 2 }, "toast": "Handoff drafted for Sam · 3 changes" },
+  "update": { "type": "summary", "title": "Handoff · Lisbon → Denver", "people": [{ "i": "M", "c": "#5B5FB0" }, { "i": "S", "c": "#3E9B5F" }],
+    "pill": "Auto-drafted", "meta": "from today's board moves", "heading": "Good morning, Sam",
+    "paras": ["Address autocomplete is done and merged. Promo codes are next, and the API is ready for you."],
+    "bullets": ["Done: Address autocomplete", "Next for you: Promo code field", "Blocked: nothing"],
+    "seen": "Seen by Sam · 9:02 AM Denver", "seenBy": [{ "i": "S", "c": "#3E9B5F" }] },
+  "handoffs": { "type": "table", "title": "Handoffs this week", "people": [{ "i": "M", "c": "#5B5FB0" }, { "i": "S", "c": "#3E9B5F" }],
+    "rows": [{ "n": "Mon · Lisbon → Denver", "m": "6 changes", "s": "Seen", "ok": true }, { "n": "Tue · Denver → Lisbon", "m": "4 changes", "s": "Seen", "ok": true },
+             { "n": "Wed · Lisbon → Denver", "m": "3 changes", "s": "Seen", "ok": true }, { "n": "Thu · Denver → Lisbon", "m": "5 changes", "s": "Drafting…", "to": "Seen", "ok": false }] }
+ },
+ "script": [
+  { "id": "hook", "say": "Your team doesn't need another status meeting.", "pauseAfter": 0.3 },
+  { "id": "tz", "say": "I'm in Lisbon, Sam's in Denver. When I log off, he's just logging on, and my updates get lost in the chat.", "pauseAfter": 0.25 },
+  { "id": "sam", "speaker": "sam", "say": "Wait, what changed?", "pauseAfter": 0.4 },
+  { "id": "idea", "say": "So we use Baton, the project board that writes the handoff for you.", "pauseAfter": 0.4 },
+  { "id": "move", "say": "I just move my cards like I always do,", "pauseAfter": 0.15 },
+  { "id": "share", "say": "and Baton turns them into a clear update for Sam's morning.", "pauseAfter": 0.4 },
+  { "id": "stat", "say": "We've dropped four meetings a week.", "pauseAfter": 0.8 },
+  { "id": "brand", "say": "Baton.", "pauseAfter": 0.55 },
+  { "id": "tag", "say": "Hand off, log off.", "pauseAfter": 0.55 },
+  { "id": "cta", "say": "Try it with your team.", "pauseAfter": 0.2 }
+ ],
+ "scenes": [
+  { "scene": "clutter", "lines": ["hook"], "caption": "Another\nstatus meeting?", "hi": "meeting?",
+    "props": [{ "prop": "calendarPad", "count": 7, "size": 130, "variants": [{ "day": "9" }, { "day": "10" }, { "day": "11" }, { "day": "12" }, { "day": "13" }, { "day": "16" }, { "day": "17" }] }],
+    "every": 0.14, "resolve": "poof", "pose": "shrug" },
+  { "scene": "duo", "lines": ["tz", "sam"], "caption": "Different time zones,\nlost updates.", "hi": "lost",
+    "people": [{ "who": "maya", "label": "Maya", "place": "Lisbon · 6:00 PM", "sky": "moon" }, { "who": "sam", "label": "Sam", "place": "Denver · 11:00 AM", "sky": "sun" }],
+    "messages": { "prop": "chatBubble", "miss": true, "every": 0.5, "size": 80 }, "dread": true, "qAt": "Wait,",
+    "poses": [["maya", "tz", "I'm", "talk"], ["maya", "tz", "updates", "shrug"], ["sam", "sam", "Wait,", "shrug"]], "looks": [["sam", "sam", "Wait,", 0]] },
+  { "scene": "idea", "lines": ["idea"], "kicker": "Meet Baton", "caption": "The board that writes\nthe handoff for you.", "hi": "handoff", "appAt": "project", "burstAt": "writes", "who": "maya", "pose": "wave" },
+  { "scene": "device", "lines": ["move", "share"], "steps": [
+     { "line": "move", "screen": "board", "caption": "Just move\nyour cards.", "hi": "cards.", "moveAt": "move", "toastAt": "always", "pose": "point" },
+     { "line": "share", "screen": "update", "screenAt": "clear", "drop": true, "caption": "The update\nwrites itself.", "hi": "itself.", "badgeAt": "morning.",
+       "interaction": "send", "props": [{ "prop": "envelope", "size": 100 }], "to": [1880, 120], "at": "update", "pose": "open" } ] },
+  { "scene": "stat", "lines": ["stat"], "value": 4, "from": 0, "label": "fewer meetings,\nevery week.", "labelHi": "fewer", "at": "four",
+    "props": { "prop": "calendarPad", "count": 4, "size": 150 }, "mode": "away" },
+  { "scene": "end", "lines": ["brand", "tag", "cta"], "taglineText": "Hand off,\nlog off.", "hi": "off.", "screen": "handoffs",
+    "orbit": ["envelope", "calendarPad", "chatBubble", "check", "moon", "sun"] }
+ ],
+ "music": { "key": "D", "bpmNear": 100 }
+}

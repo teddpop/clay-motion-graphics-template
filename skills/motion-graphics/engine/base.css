@@ -1,0 +1,35 @@
+/* Shared base for compositions. Override the :root variables per brand. */
+@font-face { font-family: 'Inter'; src: url('fonts/InterVariable.ttf') format('truetype'); font-weight: 100 900; }
+@font-face { font-family: 'JetBrains Mono'; src: url('fonts/JetBrainsMono.ttf') format('truetype'); font-weight: 100 800; }
+
+:root {
+  --paper: #F4F4EF; --ink: #161917; --muted: #8E918A; --hi: #D4FF3A; --sage: #D3DACB; --red: #E5484D;
+  --card: #FFFFFF; --on-hi: #161917; --sans: 'Inter', system-ui, sans-serif; --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--paper); }
+body { font-family: var(--sans); color: var(--ink); -webkit-font-smoothing: antialiased; font-feature-settings: 'ss01', 'cv11'; }
+
+.stage { position: absolute; inset: 0; overflow: hidden; }
+.layer { position: absolute; inset: 0; }
+.scene { position: absolute; inset: 0; visibility: hidden; }
+
+.mg-word { position: relative; display: inline-block; white-space: pre; will-change: transform, opacity; }
+.mg-hi { position: absolute; left: -0.1em; right: -0.1em; top: 0.06em; bottom: -0.02em; background: var(--hi);
+  transform-origin: left center; transform: scaleX(0); z-index: -1; }
+.mg-word { z-index: 0; isolation: isolate; }
+
+.headline { position: absolute; left: 105px; top: 290px; width: 820px; font-size: 104px; font-weight: 600;
+  letter-spacing: -0.025em; line-height: 1.04; }
+.kicker { position: absolute; left: 105px; top: 215px; font-size: 40px; font-weight: 450; color: var(--muted); letter-spacing: -0.01em; }
+
+.card { position: absolute; background: var(--card); border: 3px solid var(--ink); border-radius: 16px;
+  box-shadow: 9px 9px 0 var(--ink); padding: 26px 30px; font-size: 28px; font-weight: 550; }
+.mono { font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.06em; font-size: 19px; font-weight: 600; }
+.chip { display: inline-block; border: 2.5px solid var(--ink); border-radius: 999px; padding: 8px 18px; font-size: 24px; font-weight: 500; margin: 0 10px 12px 0; background: #fff; }
+.badge-x { position: absolute; width: 58px; height: 58px; border-radius: 50%; border: 4px solid var(--red); background: #fff;
+  display: grid; place-items: center; color: var(--red); font-size: 36px; font-weight: 700; line-height: 1; }
+
+.avatar { position: absolute; left: 110px; top: 600px; width: 410px; height: 410px; border-radius: 50%; overflow: hidden;
+  border: 4px solid var(--ink); background: #EFEDE7; }
+.logo { position: absolute; left: 105px; top: 62px; font-size: 44px; font-weight: 750; letter-spacing: -0.03em; display: flex; align-items: center; gap: 10px; }

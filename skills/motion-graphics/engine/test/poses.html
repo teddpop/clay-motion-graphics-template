@@ -1,0 +1,10 @@
+<!doctype html><html><head><link rel="stylesheet" href="../base.css">
+<style>.cell{position:absolute;top:60px;width:210px;height:480px}.lbl{position:absolute;top:560px;width:210px;text-align:center;font:600 22px Inter}.b{position:absolute;top:640px;width:200px;height:200px;border-radius:50%;overflow:hidden;border:4px solid #161917;background:#EFEDE7}</style>
+</head><body><div class="stage" id="s"></div>
+<script src="../runtime.js"></script><script src="../host.js"></script><script>
+MG.setup({duration:1});
+const names=Object.keys(MG.POSES);
+names.forEach((n,i)=>{const c=document.createElement('div');c.className='cell';c.style.left=(20+i*210)+'px';s.appendChild(c);
+MG.host(c,{pose:n,seed:i+3});const l=document.createElement('div');l.className='lbl';l.style.left=(20+i*210)+'px';l.textContent=n;s.appendChild(l);});
+names.slice(0,4).forEach((n,i)=>{const b=document.createElement('div');b.className='b';b.style.left=(40+i*260)+'px';s.appendChild(b);MG.host(b,{variant:'bust',pose:n});});
+</script></body></html>

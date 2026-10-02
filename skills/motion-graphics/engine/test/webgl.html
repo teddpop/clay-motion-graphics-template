@@ -1,0 +1,15 @@
+<!doctype html><html><body style="margin:0;background:#F6F3EC">
+<script type="importmap">{"imports":{"three":"../vendor/three/three.module.js","three/addons/":"../vendor/three/addons/"}}</script>
+<script src="../runtime.js"></script>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+const r = new THREE.WebGLRenderer({antialias:true, alpha:true, preserveDrawingBuffer:true});
+r.setSize(800,800); document.body.appendChild(r.domElement);
+const s = new THREE.Scene(); s.environment = new THREE.PMREMGenerator(r).fromScene(new RoomEnvironment(), 0.04).texture;
+const c = new THREE.PerspectiveCamera(30,1,0.1,100); c.position.set(0,0,5);
+const m = new THREE.Mesh(new THREE.SphereGeometry(1,64,64), new THREE.MeshStandardMaterial({color:'#C8875B', roughness:0.75}));
+s.add(m); const l=new THREE.DirectionalLight('#fff',2); l.position.set(2,3,4); s.add(l);
+MG.setup({duration:1}); MG.call(0,1,()=>{r.render(s,c)});
+window.__gl = r.getContext().getParameter(r.getContext().VERSION) + ' | ' + (r.getContext().getExtension('WEBGL_debug_renderer_info') ? r.getContext().getParameter(r.getContext().getExtension('WEBGL_debug_renderer_info').UNMASKED_RENDERER_WEBGL) : '');
+</script></body></html>

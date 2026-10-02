@@ -1,0 +1,431 @@
+{
+ "style": "clay-story",
+ "product": {
+  "name": "Pantrio",
+  "category": "kitchen app",
+  "differentiator": "thinks for you",
+  "cta": "Try it for free",
+  "url": "pantrio.app"
+ },
+ "story": {
+  "value": "Dinner decided from what you already have; less food wasted, less stress at 6 PM.",
+  "feeling": "relief",
+  "framework": "problem → product solves it on screen → it learns you",
+  "why": "The pain lives in a physical place (the fridge) with nameable contents, so a container opening is the honest opener."
+ },
+ "brand": {
+  "hue": 55,
+  "palette": {
+   "paper": "#F8F4F1",
+   "ink": "#191715",
+   "hi": "#FE8505",
+   "hi2": "#FFBE85",
+   "warm": "#E1D3CA",
+   "tint": "#FFE2C4",
+   "tint2": "#DDEFD0",
+   "muted": "#9A928A",
+   "sub": "#6F695F",
+   "line": "#EEE7DE",
+   "line2": "#E6DED3",
+   "kickInk": "#FFFFFF",
+   "kickMuted": "#FFD9B0"
+  },
+  "accent": "#4FA046",
+  "mark": "<path d=\"M6 22 H42 Q41 40 24 42 Q7 40 6 22 Z\" fill=\"#FE8505\" stroke=\"#191715\" stroke-width=\"3.2\" stroke-linejoin=\"round\"/><path d=\"M24 20 Q22 9 32 5 Q34 15 24 20 Z\" fill=\"#4FA046\" stroke=\"#191715\" stroke-width=\"2.6\" stroke-linejoin=\"round\"/><circle cx=\"17\" cy=\"30\" r=\"2.2\" fill=\"#191715\"/><circle cx=\"31\" cy=\"30\" r=\"2.2\" fill=\"#191715\"/><path d=\"M20 34 Q24 37 28 34\" stroke=\"#191715\" stroke-width=\"2.4\" fill=\"none\" stroke-linecap=\"round\"/>"
+ },
+ "cast": [
+  {
+   "id": "poko",
+   "name": "Poko",
+   "gender": "male",
+   "hair": "curly",
+   "palette": {
+    "skin": "#EDC3A0",
+    "hair": "#8A4B2A",
+    "shirt": "#4E6E7A",
+    "shirtDark": "#3C5864"
+   },
+   "voice": "am_puck"
+  }
+ ],
+ "voice": {
+  "voice": "am_puck",
+  "speed": 1.0,
+  "lead": 0.6,
+  "gap": 0.35,
+  "tail": 4.4
+ },
+ "device": {
+  "type": "phone",
+  "time": "6:02",
+  "first": "home"
+ },
+ "screens": {
+  "home": {
+   "type": "home-actions",
+   "greeting": "What's for\ndinner tonight?",
+   "actions": [
+    {
+     "label": "Snap your fridge",
+     "icon": "camera"
+    },
+    {
+     "label": "Plan my week",
+     "tile": "#DDEFD0"
+    },
+    {
+     "label": "Cook something new",
+     "tile": "#FFE2C4"
+    }
+   ]
+  },
+  "scan": {
+   "type": "camera-scan",
+   "title": "What's in your fridge?",
+   "cta": "Make dinner →"
+  },
+  "recipe": {
+   "type": "result-card",
+   "pill": "Tonight · 20 min",
+   "title": "Kimchi fried rice",
+   "meta": "Serves 2 · Nothing to buy",
+   "checks": [
+    "½ cabbage",
+    "3 eggs",
+    "Leftover rice"
+   ],
+   "cta": "Start cooking"
+  },
+  "cook": {
+   "type": "step-timer",
+   "mode": "Cook mode",
+   "steps": 4,
+   "current": 2,
+   "text": "Toss in the rice\nand cabbage.",
+   "timer": "20:00",
+   "drain": 330,
+   "note": "High heat · keep it moving",
+   "cta": "Next step →"
+  },
+  "week": {
+   "type": "list-plan",
+   "title": "This week",
+   "badge": "Learned · weeknights ≤ 25 min",
+   "rows": [
+    {
+     "d": "MON",
+     "n": "Kimchi fried rice",
+     "m": "20m",
+     "c": "#FFE2C4"
+    },
+    {
+     "d": "TUE",
+     "n": "15-min tacos",
+     "m": "15m",
+     "c": "#FDE7A6"
+    },
+    {
+     "d": "WED",
+     "n": "Lemon pasta",
+     "m": "15m",
+     "c": "#FFF3B8"
+    },
+    {
+     "d": "THU",
+     "n": "Leftovers night",
+     "m": "5m",
+     "c": "#EDE6DC"
+    },
+    {
+     "d": "FRI",
+     "n": "Sheet-pan chicken",
+     "m": "25m",
+     "c": "#DDEFD0"
+    }
+   ]
+  },
+  "endHome": {
+   "type": "home-card",
+   "greeting": "Good evening.",
+   "sub": "Dinner's handled.",
+   "pill": "Tonight · 20 min",
+   "title": "Kimchi fried rice",
+   "cta": "Start cooking"
+  }
+ },
+ "script": [
+  {
+   "id": "hard",
+   "say": "Knowing what to cook is hard.",
+   "pauseAfter": 0.35
+  },
+  {
+   "id": "fridge",
+   "say": "It's six o'clock, you're staring into the fridge, and nothing comes to mind.",
+   "pauseAfter": 0.4
+  },
+  {
+   "id": "items",
+   "say": "What do you do with half a cabbage, a few eggs, and some leftover rice?",
+   "pauseAfter": 0.45
+  },
+  {
+   "id": "idea",
+   "say": "That's where Pantrio comes in, the kitchen app that thinks for you.",
+   "pauseAfter": 0.45
+  },
+  {
+   "id": "snap",
+   "say": "Snap a photo of what you've got,",
+   "pauseAfter": 0.2
+  },
+  {
+   "id": "dinner",
+   "say": "and it turns that into tonight's dinner,",
+   "pauseAfter": 0.2
+  },
+  {
+   "id": "cook",
+   "say": "walking you through every step of the recipe until you get it done.",
+   "pauseAfter": 0.45
+  },
+  {
+   "id": "week",
+   "say": "And the best part is, the more you cook with it, the better it can plan your weekly meals.",
+   "pauseAfter": 0.6
+  },
+  {
+   "id": "brand",
+   "say": "Pantrio.",
+   "pauseAfter": 0.6
+  },
+  {
+   "id": "end",
+   "say": "Home cooking, figured out.",
+   "pauseAfter": 0.6
+  },
+  {
+   "id": "free",
+   "say": "Try it for free.",
+   "pauseAfter": 0.2
+  }
+ ],
+ "scenes": [
+  {
+   "scene": "statement",
+   "lines": [
+    "hard"
+   ],
+   "caption": "Knowing what to cook\nis hard.",
+   "hi": "hard."
+  },
+  {
+   "scene": "problem-object",
+   "lines": [
+    "fridge",
+    "items"
+   ],
+   "object": "fridge",
+   "at": [
+    1440,
+    600
+   ],
+   "size": 430,
+   "turn": -16,
+   "big": "6:00 PM.",
+   "bigAt": "six",
+   "caption": "Nothing comes\nto mind.",
+   "hi": "mind.",
+   "openAt": "fridge,",
+   "dreadAt": "staring",
+   "qAt": "nothing",
+   "itemsPoseAt": "Half",
+   "items": [
+    {
+     "prop": "cabbage",
+     "label": "½ cabbage",
+     "named": "cabbage,",
+     "slot": 0,
+     "size": 150,
+     "tilt": [
+      0,
+      18,
+      0
+     ]
+    },
+    {
+     "prop": "eggWhole",
+     "count": 3,
+     "label": "3 eggs",
+     "named": "eggs,",
+     "slot": 2,
+     "size": 70
+    },
+    {
+     "prop": "riceTub",
+     "label": "Leftover rice",
+     "named": "rice?",
+     "slot": 1,
+     "size": 170,
+     "arSize": 180,
+     "tilt": [
+      18,
+      -12,
+      0
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "idea",
+   "lines": [
+    "idea"
+   ],
+   "kicker": "Meet Pantrio",
+   "caption": "The kitchen app\nthat thinks for you.",
+   "hi": "thinks",
+   "appAt": "kitchen",
+   "burstAt": "thinks",
+   "screen": "home"
+  },
+  {
+   "scene": "device",
+   "lines": [
+    "snap",
+    "dinner",
+    "cook",
+    "week"
+   ],
+   "steps": [
+    {
+     "line": "snap",
+     "screen": "scan",
+     "caption": "Snap what\nyou've got.",
+     "hi": "got.",
+     "interaction": "scan-items",
+     "at": "photo",
+     "suckAt": [
+      "dinner",
+      "turns"
+     ],
+     "pose": "point"
+    },
+    {
+     "line": "dinner",
+     "screen": "recipe",
+     "screenAt": "tonight's",
+     "drop": true,
+     "caption": "Tonight's dinner,\nsorted.",
+     "hi": "sorted.",
+     "interaction": "pop-out",
+     "prop": "riceBowl",
+     "pose": "open",
+     "look": []
+    },
+    {
+     "line": "cook",
+     "screen": "cook",
+     "lead": 0.35,
+     "bg": "hi2",
+     "caption": "Every step,\nguided.",
+     "hi": "guided.",
+     "interaction": "side-prop",
+     "prop": "pan",
+     "satellites": [
+      "cabbage",
+      "eggWhole",
+      "herb"
+     ],
+     "puffs": true,
+     "sfx": "sizzle",
+     "dingAt": "done.",
+     "pose": "talk"
+    },
+    {
+     "line": "week",
+     "screen": "week",
+     "lead": 0.25,
+     "bg": "warm",
+     "caption": "Your weekly plan,\nlearned from you.",
+     "hi": "you.",
+     "interaction": "row-props",
+     "props": [
+      {
+       "prop": "riceBowl",
+       "size": 70
+      },
+      {
+       "prop": "pepper",
+       "size": 56
+      },
+      {
+       "prop": "lemon",
+       "size": 60,
+       "tilt": [
+        0,
+        -20,
+        0
+       ]
+      },
+      {
+       "prop": "riceTub",
+       "size": 64
+      },
+      {
+       "prop": "broccoli",
+       "size": 62
+      }
+     ],
+     "badgeAt": "better",
+     "pose": "present",
+     "poses": [
+      [
+       0,
+       "present"
+      ],
+      [
+       "plan",
+       "point"
+      ]
+     ],
+     "look": [
+      [
+       0.1,
+       12,
+       0
+      ],
+      [
+       "better",
+       0,
+       -0.1
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "scene": "end",
+   "lines": [
+    "brand",
+    "end",
+    "free"
+   ],
+   "taglineText": "Home cooking,\nfigured out.",
+   "hi": "out.",
+   "screen": "endHome",
+   "hero": "riceBowl",
+   "orbit": [
+    "tomato",
+    "lemon",
+    "avocado",
+    "egg",
+    "broccoli",
+    "carrot"
+   ]
+  }
+ ],
+ "music": {
+  "key": "G",
+  "bpmNear": 96
+ }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "motion-graphics-engine",
+  "private": true,
+  "description": "Render engine for the motion-graphics skill (headless Chrome capture via playwright-core).",
+  "type": "commonjs",
+  "dependencies": {
+    "playwright-core": "1.58.1"
+  }
+}

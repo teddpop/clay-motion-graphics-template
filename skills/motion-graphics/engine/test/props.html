@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../base.css">
+<script type="importmap">{"imports":{"three":"../vendor/three/three.module.js","three/addons/":"../vendor/three/addons/"}}</script>
+<style>body{background:#F8F4F1}.l{position:absolute;font:600 17px 'JetBrains Mono';width:240px;text-align:center}</style></head>
+<body><div class="stage" id="s"></div><script>window.__ready=false</script><script src="../runtime.js"></script>
+<script type="module">
+// Preview every prop of one or more packs:  test/props.html?pack=finance,office   (default: all packs)
+// Render: node render.mjs test/props.html --stills 1 --outdir test/props   (containers are shown half-open)
+import '../clay3d.js';
+const all = ['food', 'finance', 'office', 'fitness', 'home', 'ui'];
+const want = (new URLSearchParams(location.search).get('pack') || window.PACKS || all.join(',')).split(',');
+const names = [];
+for (const p of want) { const mod = await import(`../props/${p}.js`); names.push(...Object.keys(mod[p])); }
+const N = names.length, cols = N > 24 ? 8 : 6, rows = Math.ceil(N / cols), cw = 1920 / cols, rh = Math.min(330, 1080 / rows);
+const size = Math.min(170, rh * 0.55);
+MG.setup({ duration: 2 });
+const st = MG.stage3d('#s');
+names.forEach((n, i) => {
+  const x = cw / 2 + (i % cols) * cw, y = rh * 0.42 + Math.floor(i / cols) * rh;
+  const o = MG.props[n]();
+  st.add(o, (ob, t) => { MG.place(ob, t, st, { at: [x, y], size, spin: 0, tilt: [12, -18, 0], seed: i, bob: 0 }); if (ob.userData.open) ob.userData.open(0.6); });
+  const l = document.createElement('div'); l.className = 'l'; l.style.left = (x - 120) + 'px'; l.style.top = (y + size * 0.62) + 'px'; l.textContent = n; s.appendChild(l);
+});
+window.__ready = true;
+</script></body></html>

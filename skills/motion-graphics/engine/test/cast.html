@@ -1,0 +1,16 @@
+<!doctype html><html><head><link rel="stylesheet" href="../base.css">
+<script type="importmap">{"imports":{"three":"../vendor/three/three.module.js","three/addons/":"../vendor/three/addons/"}}</script>
+<style>body{background:#fff}.bg{position:absolute;top:0;height:640px;width:384px}.cell{position:absolute;top:20px;width:384px;height:620px}.b{position:absolute;top:660px;width:360px;height:360px;border-radius:50%;overflow:hidden;border:4px solid #1C1A17}.sw{position:absolute;top:1030px;width:384px;text-align:center;font:600 20px Inter}</style>
+</head><body><div class="stage" id="s"></div><script>window.__ready=false</script><script src="../runtime.js"></script>
+<script type="module">
+import '../host3d.js';
+MG.setup({duration:1});
+const P={skin:'#EDC3A0',hair:'#8A4B2A',shirt:'#4E6E7A',shirtDark:'#3C5864'};
+const BG=[['#FFE066','butter'],['#FF9F6B','tangerine'],['#8FD3B6','mint'],['#9CC8FF','sky'],['#C9B3FF','lilac']];
+const poses=['idle','shrug','present','wave','open'];
+BG.forEach(([c,n],i)=>{const g=document.createElement('div');g.className='bg';g.style.left=(i*384)+'px';g.style.background=c;s.appendChild(g);
+const e=document.createElement('div');e.className='cell';e.style.left=(i*384)+'px';s.appendChild(e);MG.host3d(e,{pose:poses[i],hair:'curly',palette:P,seed:i+2});
+const b=document.createElement('div');b.className='b';b.style.left=(i*384+12)+'px';b.style.background=c;s.appendChild(b);MG.host3d(b,{variant:'bust',pose:['talk','point','think','thumbs','talk'][i],hair:'curly',palette:P});
+const l=document.createElement('div');l.className='sw';l.style.left=(i*384)+'px';l.textContent=n+' '+c;s.appendChild(l);});
+window.__ready=true;
+</script></body></html>

@@ -1,0 +1,33 @@
+<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="../base.css"><link rel="stylesheet" href="../style/clay-story/style.css">
+<style>.ph{position:absolute;transform-origin:0 0;transform:scale(.5)} .ph #phone{position:relative;left:0;top:0} .l{position:absolute;font:600 17px 'JetBrains Mono';width:240px;text-align:center}</style></head>
+<body><div class="stage" id="s"></div><script>window.__ready=false</script><script src="../runtime.js"></script>
+<script type="module">
+// Every screen type of the Clay Story kit with sample copy.   node render.mjs test/screens.html --stills 3 --outdir test/screens
+import { SCREENS } from '../screens/phone.js';
+const P = { name: 'Brand', paper: '#F8F4F1', ink: '#191715', hi: '#FE8505', hi2: '#FFBE85', tint: '#FFE2C4', tint2: '#DDEFD0', warm: '#E1D3CA', line: '#EEE7DE', line2: '#E6DED3', sub: '#6F695F', ok: '#3E9B5F', onHi: '#191715', muted: '#9A928A' };
+for (const [k, v] of Object.entries(P)) document.documentElement.style.setProperty('--' + (k === 'onHi' ? 'on-hi' : k), v);
+const S = {
+  'home-actions': { greeting: 'Good morning,\nAlex.', actions: [{ label: 'Scan a receipt', icon: 'camera' }, { label: 'See my month', icon: 'chart' }, { label: 'Set a goal', icon: 'target' }] },
+  'camera-scan': { title: 'Scan your desk', cta: 'Organise →' },
+  'result-card': { pill: 'Ready · 2 min', title: 'Weekly report', meta: 'Drafted from 14 notes', checks: ['Sales up 12%', '3 blockers', 'Next steps'], cta: 'Send it' },
+  'step-timer': { mode: 'Focus', steps: 4, current: 2, text: 'Write the intro\nparagraph.', timer: '25:00', note: 'Phone on silent', cta: 'Next →' },
+  'list-plan': { title: 'This week', badge: 'Learned · mornings', rows: [{ d: 'MON', n: 'Run 5 km', m: '28m' }, { d: 'TUE', n: 'Yoga', m: '40m' }, { d: 'WED', n: 'Rest day', m: '—' }, { d: 'THU', n: 'Intervals', m: '25m' }] },
+  'home-card': { greeting: 'Welcome back.', sub: 'All caught up.', pill: 'Today', title: 'Inbox zero', cta: 'Open' },
+  'dashboard-stat': { label: 'This month', value: 1240, prefix: '$', delta: '↓ 18% vs August', cats: [{ n: 'Food', v: '$420' }, { n: 'Travel', v: '$96' }] },
+  'goal-progress': { label: 'Saving for', goal: 'Lisbon in May', saved: 820, target: 1200, prefix: '$', badge: '+$38 this week' },
+  'chat-reply': { user: 'Can you move my 3 pm?', reply: 'Done — moved to Thursday at 10. I told Sam.' },
+  'calendar-week': { title: 'Your week', events: [{ d: 0, top: 0.15, h: 0.2, label: 'Gym' }, { d: 2, top: 0.4, h: 0.15, label: 'Call' }, { d: 4, top: 0.25, h: 0.3, label: 'Deep work' }], badge: '3 h freed up' },
+  'form-success': { title: 'You’re booked!', sub: 'Fri 7:30 pm · table for 2', cta: 'Add to calendar' },
+  'map-route': { eta: '12 min', to: 'Corner Café', from: 'Walk · 0.8 km' },
+  'player': { title: 'Morning Focus', artist: '45 min · lo-fi' },
+  'checkout': { items: [{ n: 'Sneakers', p: '$89' }, { n: 'Socks ×2', p: '$12' }], total: '$101', cta: 'Pay with card' },
+};
+MG.setup({ duration: 5 });
+Object.entries(S).forEach(([type, spec], i) => {
+  const x = 20 + (i % 7) * 272, y = 20 + Math.floor(i / 7) * 530;
+  s.insertAdjacentHTML('beforeend', `<div class="ph" style="left:${x}px;top:${y}px"><div id="phone"><div class="screen"><div class="notch"></div><div class="sb"><span>9:41</span><span>●●● 5G</span></div><div class="scr" style="${SCREENS[type].style || ''}">${SCREENS[type].html(spec, P)}</div></div></div></div><div class="l" style="left:${x - 3}px;top:${y + 460}px">${type}</div>`);
+  const el = s.querySelectorAll('.scr')[i];
+  SCREENS[type].animate?.(el, spec, { t0: 0.2, t1: 4 }, { MG, tw: MG.tween, E: MG.E, soft: (e, t, o = {}) => MG.pop(e, t, o), clamp: MG.clamp, ev: { shot: 1, badge: 1.8 } });
+});
+window.__ready = true;
+</script></body></html>
